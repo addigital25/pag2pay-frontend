@@ -154,7 +154,7 @@ export default function Planos({ product, setProduct, setActiveTab }) {
         setUploadingSideImage(true)
       }
 
-      const response = await fetch('http://localhost:3001/api/upload/image', {
+      const response = await fetch('https://pag2pay-backend01-production.up.railway.app/api/upload/image', {
         method: 'POST',
         body: formData
       })
@@ -195,7 +195,7 @@ export default function Planos({ product, setProduct, setActiveTab }) {
     }
 
     try {
-      const res = await fetch(`http://localhost:3001/api/suppliers/validate?email=${encodeURIComponent(email)}`)
+      const res = await fetch(`https://pag2pay-backend01-production.up.railway.app/api/suppliers/validate?email=${encodeURIComponent(email)}`)
       const data = await res.json()
 
       if (data.valid) {
@@ -337,7 +337,7 @@ export default function Planos({ product, setProduct, setActiveTab }) {
         planos: updatedProduct.plans
       })
 
-      const response = await fetch(`http://localhost:3001/api/products/${product.id}`, {
+      const response = await fetch(`https://pag2pay-backend01-production.up.railway.app/api/products/${product.id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(updatedProduct)

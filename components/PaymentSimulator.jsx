@@ -10,7 +10,7 @@ export default function PaymentSimulator({ orderId, onPaymentConfirmed }) {
     setSimulating(true)
 
     try {
-      const response = await fetch(`http://localhost:3001/api/payments/simulate-confirmation`, {
+      const response = await fetch(`https://pag2pay-backend01-production.up.railway.app/api/payments/simulate-confirmation`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ orderId })

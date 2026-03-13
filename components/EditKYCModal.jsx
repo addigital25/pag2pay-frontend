@@ -64,7 +64,7 @@ export default function EditKYCModal({ isOpen, onClose, user, onSave }) {
 
     try {
       // Chamar API para salvar dados KYC
-      const response = await fetch(`http://localhost:3001/api/platform/users/${user.id}/edit-kyc`, {
+      const response = await fetch(`https://pag2pay-backend01-production.up.railway.app/api/platform/users/${user.id}/edit-kyc`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',

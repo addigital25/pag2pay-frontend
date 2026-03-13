@@ -26,7 +26,7 @@ export default function UserStatusGuard({ children }) {
 
   const loadUserStatus = async () => {
     try {
-      const response = await fetch(`http://localhost:3001/api/users/${user.id}/verification`)
+      const response = await fetch(`https://pag2pay-backend01-production.up.railway.app/api/users/${user.id}/verification`)
       const data = await response.json()
       setUserStatus(data.status || 'not_submitted')
     } catch (error) {

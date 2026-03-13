@@ -37,7 +37,7 @@ export default function Campanhas({ product, setProduct }) {
   const fetchPixels = async () => {
     try {
       // Buscar configurações do usuário (assumindo que pixels estão em /api/settings)
-      const response = await fetch('http://localhost:3001/api/settings')
+      const response = await fetch('https://pag2pay-backend01-production.up.railway.app/api/settings')
       if (response.ok) {
         const data = await response.json()
         setAvailablePixels(data.pixels || [])
@@ -125,7 +125,7 @@ export default function Campanhas({ product, setProduct }) {
     // Salvar no backend automaticamente
     try {
       console.log('🌐 Salvando no backend...')
-      const response = await fetch(`http://localhost:3001/api/products/${product.id}`, {
+      const response = await fetch(`https://pag2pay-backend01-production.up.railway.app/api/products/${product.id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(updatedProduct)
@@ -170,7 +170,7 @@ export default function Campanhas({ product, setProduct }) {
 
     // Salvar no backend
     try {
-      await fetch(`http://localhost:3001/api/products/${product.id}`, {
+      await fetch(`https://pag2pay-backend01-production.up.railway.app/api/products/${product.id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(updatedProduct)

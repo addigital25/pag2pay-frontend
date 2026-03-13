@@ -147,7 +147,7 @@ export default function Cupons({ product, setProduct }) {
       console.log('📤 JSON.stringify(updateData):', JSON.stringify(updateData))
       console.log('🔴🔴🔴 FIM CRÍTICO 🔴🔴🔴')
 
-      const response = await fetch(`http://localhost:3001/api/products/${product.id}`, {
+      const response = await fetch(`https://pag2pay-backend01-production.up.railway.app/api/products/${product.id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(updateData)

@@ -56,7 +56,7 @@ export default function EditBankModal({ isOpen, onClose, user, onSave }) {
 
     try {
       // Chamar API para salvar dados bancários
-      const response = await fetch(`http://localhost:3001/api/platform/users/${user.id}/edit-bank`, {
+      const response = await fetch(`https://pag2pay-backend01-production.up.railway.app/api/platform/users/${user.id}/edit-bank`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',

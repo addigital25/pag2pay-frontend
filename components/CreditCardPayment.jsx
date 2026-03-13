@@ -98,7 +98,7 @@ export default function CreditCardPayment({ orderId, totalValue, onPaymentComple
     setPaymentError(null)
 
     try {
-      const response = await fetch(`http://localhost:3001/api/payments/credit-card/process`, {
+      const response = await fetch(`https://pag2pay-backend01-production.up.railway.app/api/payments/credit-card/process`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

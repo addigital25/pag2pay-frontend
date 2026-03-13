@@ -63,7 +63,7 @@ export default function OrderDetails({ orderId, onClose, isAdminView = false }) 
 
   const fetchOrderDetails = async () => {
     try {
-      const response = await fetch(`http://localhost:3001/api/orders/${orderId}`)
+      const response = await fetch(`https://pag2pay-backend01-production.up.railway.app/api/orders/${orderId}`)
       const data = await response.json()
       setOrder(data)
     } catch (error) {
@@ -79,7 +79,7 @@ export default function OrderDetails({ orderId, onClose, isAdminView = false }) 
     setLoadingTracking(true)
     try {
       const response = await fetch(
-        `http://localhost:3001/api/orders/${orderId}/correios-tracking`
+        `https://pag2pay-backend01-production.up.railway.app/api/orders/${orderId}/correios-tracking`
       )
       const data = await response.json()
 
@@ -102,7 +102,7 @@ export default function OrderDetails({ orderId, onClose, isAdminView = false }) 
     setLoadingCommissions(true)
     try {
       const response = await fetch(
-        `http://localhost:3001/api/orders/${orderId}/commissions`
+        `https://pag2pay-backend01-production.up.railway.app/api/orders/${orderId}/commissions`
       )
       const data = await response.json()
 
@@ -196,7 +196,7 @@ export default function OrderDetails({ orderId, onClose, isAdminView = false }) 
       type: 'info',
       onConfirm: async () => {
         try {
-          await fetch(`http://localhost:3001/api/orders/${orderId}/tracking`, {
+          await fetch(`https://pag2pay-backend01-production.up.railway.app/api/orders/${orderId}/tracking`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ trackingCode, carrier })
@@ -229,7 +229,7 @@ export default function OrderDetails({ orderId, onClose, isAdminView = false }) 
       type: 'success',
       onConfirm: async () => {
         try {
-          await fetch(`http://localhost:3001/api/orders/${orderId}/confirm-delivery`, {
+          await fetch(`https://pag2pay-backend01-production.up.railway.app/api/orders/${orderId}/confirm-delivery`, {
             method: 'POST'
           })
 
@@ -258,7 +258,7 @@ export default function OrderDetails({ orderId, onClose, isAdminView = false }) 
       type: 'danger',
       onConfirm: async () => {
         try {
-          await fetch(`http://localhost:3001/api/orders/${orderId}/cancel`, {
+          await fetch(`https://pag2pay-backend01-production.up.railway.app/api/orders/${orderId}/cancel`, {
             method: 'POST'
           })
 
@@ -298,7 +298,7 @@ export default function OrderDetails({ orderId, onClose, isAdminView = false }) 
         type: 'danger',
         onConfirm: async () => {
           try {
-            await fetch(`http://localhost:3001/api/orders/${orderId}/cancel`, {
+            await fetch(`https://pag2pay-backend01-production.up.railway.app/api/orders/${orderId}/cancel`, {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({ reason: cancelReason, isAdmin: true })
@@ -326,7 +326,7 @@ export default function OrderDetails({ orderId, onClose, isAdminView = false }) 
 
     // Se não for admin, solicita aprovação (comportamento original)
     try {
-      await fetch(`http://localhost:3001/api/orders/${orderId}/request-cancellation`, {
+      await fetch(`https://pag2pay-backend01-production.up.railway.app/api/orders/${orderId}/request-cancellation`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ reason: cancelReason })
@@ -368,7 +368,7 @@ export default function OrderDetails({ orderId, onClose, isAdminView = false }) 
         type: 'danger',
         onConfirm: async () => {
           try {
-            await fetch(`http://localhost:3001/api/orders/${orderId}/refund`, {
+            await fetch(`https://pag2pay-backend01-production.up.railway.app/api/orders/${orderId}/refund`, {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({ reason: refundReason, isAdmin: true })
@@ -396,7 +396,7 @@ export default function OrderDetails({ orderId, onClose, isAdminView = false }) 
 
     // Se não for admin, solicita aprovação (comportamento original)
     try {
-      await fetch(`http://localhost:3001/api/orders/${orderId}/request-refund`, {
+      await fetch(`https://pag2pay-backend01-production.up.railway.app/api/orders/${orderId}/request-refund`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ reason: refundReason })
@@ -436,7 +436,7 @@ export default function OrderDetails({ orderId, onClose, isAdminView = false }) 
       type: 'info',
       onConfirm: async () => {
         try {
-          const response = await fetch(`http://localhost:3001/api/orders/${orderId}/update-phone`, {
+          const response = await fetch(`https://pag2pay-backend01-production.up.railway.app/api/orders/${orderId}/update-phone`, {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ phone: newPhone })
@@ -488,7 +488,7 @@ export default function OrderDetails({ orderId, onClose, isAdminView = false }) 
       type: 'info',
       onConfirm: async () => {
         try {
-          const response = await fetch(`http://localhost:3001/api/orders/${orderId}/update-boleto`, {
+          const response = await fetch(`https://pag2pay-backend01-production.up.railway.app/api/orders/${orderId}/update-boleto`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ newDueDate: newBoletoDate })

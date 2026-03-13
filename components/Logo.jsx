@@ -7,7 +7,7 @@ export default function Logo({ className = "", textClass = "" }) {
   useEffect(() => {
     const loadPlatformSettings = async () => {
       try {
-        const response = await fetch('http://localhost:3001/api/platform/settings')
+        const response = await fetch('https://pag2pay-backend01-production.up.railway.app/api/platform/settings')
         if (response.ok) {
           const settings = await response.json()
 

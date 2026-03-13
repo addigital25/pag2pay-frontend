@@ -3,7 +3,7 @@ import AlertModal from '../AlertModal'
 import axios from 'axios'
 
 export default function Gerente({ product }) {
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001'
+  const API_URL = import.meta.env.VITE_API_URL || 'https://pag2pay-backend01-production.up.railway.app'
 
   const [alertModal, setAlertModal] = useState({
     isOpen: false,

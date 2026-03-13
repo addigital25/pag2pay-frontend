@@ -39,7 +39,7 @@ export default function NotificationBell({ userId }) {
     }
 
     try {
-      const response = await fetch(`http://localhost:3001/api/users/${userId}/notifications`)
+      const response = await fetch(`https://pag2pay-backend01-production.up.railway.app/api/users/${userId}/notifications`)
       if (response.ok) {
         const data = await response.json()
         setNotifications(data.notifications.slice(0, 5)) // Apenas últimas 5
@@ -60,7 +60,7 @@ export default function NotificationBell({ userId }) {
 
   const markAsRead = async (notificationId) => {
     try {
-      await fetch(`http://localhost:3001/api/users/${userId}/notifications/${notificationId}/read`, {
+      await fetch(`https://pag2pay-backend01-production.up.railway.app/api/users/${userId}/notifications/${notificationId}/read`, {
         method: 'PATCH'
       })
       loadNotifications()
@@ -71,7 +71,7 @@ export default function NotificationBell({ userId }) {
 
   const markAllAsRead = async () => {
     try {
-      await fetch(`http://localhost:3001/api/users/${userId}/notifications/mark-all-read`, {
+      await fetch(`https://pag2pay-backend01-production.up.railway.app/api/users/${userId}/notifications/mark-all-read`, {
         method: 'POST'
       })
       loadNotifications()

@@ -41,7 +41,7 @@ export default function RequestEditModal({ isOpen, onClose, userId, onSuccess })
     setSubmitting(true)
 
     try {
-      const response = await fetch(`http://localhost:3001/api/users/${userId}/request-edit`, {
+      const response = await fetch(`https://pag2pay-backend01-production.up.railway.app/api/users/${userId}/request-edit`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

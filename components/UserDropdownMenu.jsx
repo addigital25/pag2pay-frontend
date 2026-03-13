@@ -37,7 +37,7 @@ export default function UserDropdownMenu() {
     if (!user?.id) return
 
     try {
-      const response = await fetch(`http://localhost:3001/api/users/${user.id}/notifications`)
+      const response = await fetch(`https://pag2pay-backend01-production.up.railway.app/api/users/${user.id}/notifications`)
       if (response.ok) {
         const data = await response.json()
         setUnreadCount(data.unreadCount)

@@ -10,7 +10,7 @@ export default function PlateConquestModal({ achievement, onClose }) {
 
   useEffect(() => {
     // Buscar logo das premiações das configurações da plataforma
-    fetch('http://localhost:3001/api/platform/settings')
+    fetch('https://pag2pay-backend01-production.up.railway.app/api/platform/settings')
       .then(res => res.json())
       .then(data => {
         if (data.images?.achievementsLogoUrl) {

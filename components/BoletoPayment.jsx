@@ -15,7 +15,7 @@ export default function BoletoPayment({ orderId, totalValue, onPaymentComplete }
   const startPaymentVerification = () => {
     const interval = setInterval(async () => {
       try {
-        const response = await fetch(`http://localhost:3001/api/orders/${orderId}`)
+        const response = await fetch(`https://pag2pay-backend01-production.up.railway.app/api/orders/${orderId}`)
         const order = await response.json()
 
         if (order.paymentStatus === 'paid') {
@@ -36,7 +36,7 @@ export default function BoletoPayment({ orderId, totalValue, onPaymentComplete }
   const generateBoleto = async () => {
     setLoading(true)
     try {
-      const response = await fetch(`http://localhost:3001/api/payments/boleto/generate`, {
+      const response = await fetch(`https://pag2pay-backend01-production.up.railway.app/api/payments/boleto/generate`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ orderId, amount: totalValue })

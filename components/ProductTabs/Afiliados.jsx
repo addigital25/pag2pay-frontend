@@ -32,7 +32,7 @@ export default function Afiliados({ product, setProduct }) {
   // Função para aprovar afiliado
   const handleApprove = async (affiliationId) => {
     try {
-      const response = await fetch(`http://localhost:3001/api/affiliations/${affiliationId}/approve`, {
+      const response = await fetch(`https://pag2pay-backend01-production.up.railway.app/api/affiliations/${affiliationId}/approve`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json'
@@ -58,7 +58,7 @@ export default function Afiliados({ product, setProduct }) {
   // Função para rejeitar afiliado
   const handleReject = async (affiliationId) => {
     try {
-      const response = await fetch(`http://localhost:3001/api/affiliations/${affiliationId}/reject`, {
+      const response = await fetch(`https://pag2pay-backend01-production.up.railway.app/api/affiliations/${affiliationId}/reject`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json'
@@ -99,7 +99,7 @@ export default function Afiliados({ product, setProduct }) {
 
     try {
       // Salvar no backend (você precisará criar este endpoint)
-      const response = await fetch(`http://localhost:3001/api/affiliations/${affiliationId}/commission`, {
+      const response = await fetch(`https://pag2pay-backend01-production.up.railway.app/api/affiliations/${affiliationId}/commission`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json'
